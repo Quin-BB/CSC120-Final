@@ -1,3 +1,4 @@
+package CharacterGenerator;
 public enum Background{
  ACOLYTE,
  CHARLATAN,

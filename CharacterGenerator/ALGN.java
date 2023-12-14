@@ -1,3 +1,4 @@
+package CharacterGenerator;
 /*
  * L = lawful
  * G = good
@@ -8,7 +9,15 @@
 
 
 public enum ALGN {
-    LG,LN,LE,NG,N,NE,CG,CN,CE;
+    LAWFUL_GOOD,
+    LAWFUL_NEUTRAL,
+    LAWFUL_EVIL,
+    NEUTRAL_GOOD,
+    NEUTRAL,
+    NEUTRAL_EVIL,
+    CHAOTIC_GOOD,
+    CHAOTIC_NEUTRAL,
+    CHAOTIC_EVIL;
 
 
 
