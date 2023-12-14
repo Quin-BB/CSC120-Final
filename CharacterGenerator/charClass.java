@@ -3,7 +3,7 @@ public enum charClass {
     ARTIFICER,
     BARBARIAN,
     BARD,
-    CLAERIC,
+    CLERIC,
     DRUID,
     FIGHTER,
     MONK,

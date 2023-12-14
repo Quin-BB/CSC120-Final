@@ -35,6 +35,7 @@ public class characterCreator {
 
 
 // WRITE A CONSTRUCTOR!!!
+// add a regenerate character option 
 
     /**
      * Allows the user to set the name of their generated character
@@ -70,7 +71,7 @@ public class characterCreator {
             // System.out.println("im here");
             for (int i = 1; i <= numRolls+1; i++){
                 if (individualRoll == 1){
-                    numRolls ++;
+                    i --;
                     // System.out.println("rerolling...");
                     individualRoll = (int)Math.floor(Math.random()* (max-min+1)+min);
                     // System.out.println("individual roll reroll: "+ individualRoll);
@@ -79,8 +80,8 @@ public class characterCreator {
                     individualRoll = (int)Math.floor(Math.random()* (max-min+1)+min);
                     roll += individualRoll;
                     /*
-                     * current issue is that if on the last loop and this section rolls a 1 it will not be rerolled since the loop is done and it will not go back to check
-                     */
+                    * current issue is that if on the last loop and this section rolls a 1 it will not be rerolled since the loop is done and it will not go back to check
+                    */
                     // System.out.println("individual roll 'first roll': "+ individualRoll);
 
                 }
