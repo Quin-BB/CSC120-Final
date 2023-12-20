@@ -1,8 +1,13 @@
 package CharacterGenerator;
 import java.util.ArrayList;
-import java.util.List;
+// import java.util.List;
 import java.util.Scanner;
-import java.util.Arrays;
+
+import CharacterGenerator.races.*;
+import CharacterGenerator.backgrounds.*;
+import CharacterGenerator.classes.*;
+
+// import java.util.Arrays;
 // import java.util.random.*;
 
 public class characterCreator {
@@ -14,29 +19,31 @@ public class characterCreator {
     static int wisdom = 0;
     static int charisma = 0;
 
-    static ArrayList<Integer> mods = new ArrayList<Integer>();
+    public static ArrayList<Integer> mods = new ArrayList<Integer>();
 
     //add stat modifiers later perhaps? not vital to what i have planned so far
     
     static int level = 1;
     static int proficiencyBonus = 2;
-    static int armorClass;
+    // static int armorClass;
     
     String name;
     static ALGN alignment = ALGN.getRandom();
     static Background background = Background.getRandom();
-    static charClass randclass = charClass.getRandom();
+    static Class randclass = Class.getRandom();
     static race randrace = race.getRandom();
 
 
-    ArrayList<String> allFeatures = new ArrayList<>();
-    ArrayList<String> allProficiencies = new ArrayList<>();
-    static List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
+    // ArrayList<String> allFeatures = new ArrayList<>();
+    // ArrayList<String> allProficiencies = new ArrayList<>();
+//    List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
 
 
 // WRITE A CONSTRUCTOR!!!
 // add a regenerate character option 
-
+//     public characterCreator(){
+//     System.out.println(charRace);    
+// }
     /**
      * Allows the user to set the name of their generated character
      * @return name of character
@@ -60,7 +67,7 @@ public class characterCreator {
      * @param rerolling 
      * @return total of all dice rolled
      */
-     public static int dice(int numRolls, int numSides, boolean rerolling){
+     public int dice(int numRolls, int numSides, boolean rerolling){
         int min = 1;
         int max = numSides;
         
@@ -103,43 +110,43 @@ public class characterCreator {
      * Sets the strength of the character
      * @return the total of 3 rolls of a 6 sided dice
      */
-    public static int setStr(){
+    public int setStr(int bonus){
         // System.out.println("str");
-        strength = dice(3,6,true);
+        strength = dice(3,6,true)+bonus;
         
         return strength;
     }
    
-    public static int setDex(){
+    public int setDex(int bonus){
         // System.out.println("dex");
-        dexterity = dice(3,6,true);
+        dexterity = dice(3,6,true)+bonus;
         
         return dexterity;
     }
 
-    public static int setCon(){
+    public int setCon(int bonus){
         // System.out.println("con");
-        constitution = dice(3,6,true);
+        constitution = dice(3,6,true)+bonus;
         
         return constitution;
     }
 
-    public static int setInt(){
+    public int setInt(int bonus){
         // System.out.println("int");
-        intelligence = dice(3,6,true);
+        intelligence = dice(3,6,true)+bonus;
         
         return intelligence;
     }
 
-    public static int setWis(){
+    public int setWis(int bonus){
         // System.out.println("wis");
-        wisdom = dice(3,6,true);
+        wisdom = dice(3,6,true)+bonus;
         return wisdom;
     }
 
-    public static int setChar(){
+    public int setChar(int bonus){
         // System.out.println("char");
-        charisma = dice(3,6,true);
+        charisma = dice(3,6,true)+bonus;
         return charisma;
     }
     /**
@@ -147,13 +154,13 @@ public class characterCreator {
      * @return arraylist of stats in order presented on character sheet
      * (STR,DEX,CON,INT,WIS,CHAR)
      */
-    public static ArrayList<Integer> setStats(){
-        stats.add(setStr());
-        stats.add(setDex());
-        stats.add(setCon());
-        stats.add(setInt());
-        stats.add(setWis());
-        stats.add(setChar());
+    public ArrayList<Integer> setStats(int sb, int db, int conb, int ib,int wb, int charb){
+        stats.add(setStr(sb));
+        stats.add(setDex(db));
+        stats.add(setCon(conb));
+        stats.add(setInt(ib));
+        stats.add(setWis(wb));
+        stats.add(setChar(charb));
 
         return stats;
     }
@@ -185,22 +192,221 @@ public class characterCreator {
         return mods;
     }
 
+    /**
+     * Creates an instance of the racial subclasses that corresponds to the random enum race value
+     */
+    public static void getRace(){
+        System.out.println("\nRace: "+ randrace);
+        
+        if (randrace == race.Centaur){
+            Centaur charRace = new Centaur();
+            System.out.println(charRace);
+        }
+        if (randrace == race.Dragonborn){
+            Dragonborn charRace = new Dragonborn();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.Dwarf){
+            Dwarf charRace = new Dwarf();
+            System.out.println(charRace);
+        }
+        if (randrace == race.Elf){
+            Elf charRace = new Elf();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.Gnome){
+            Gnome charRace = new Gnome();
+            System.out.println(charRace);
+        }
+        if (randrace == race.HalfElf){
+            HalfElf charRace = new HalfElf();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.HalfOrc){
+            HalfOrc charRace = new HalfOrc();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.Human){
+            Human charRace = new Human();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.Kenku){
+            Kenku charRace = new Kenku();
+            System.out.println(charRace);
+        }
+
+        if (randrace == race.Satyr){
+            Satyr charRace = new Satyr();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.Tiefling){
+            Tiefling charRace = new Tiefling();
+            System.out.println(charRace);
+
+        }
+        if (randrace == race.YuanTi){
+            YuanTi charRace = new YuanTi();
+            System.out.println(charRace);
+        }
+
+    }
+
+    /**
+     * Creates an instance of the class subclasses that corresponds to the random enum class value
+     */
+    public static void getCharacterClass(){
+        System.out.println("\nClass: "+ randclass);
+
+
+        if (randclass == Class.ARTIFICER){
+            Artificer charClass = new Artificer();
+            System.out.println(charClass);
+           
+        }
+        if (randclass == Class.BARBARIAN){
+            Barbarian charClass = new Barbarian();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.BARD){
+            Bard charClass = new Bard();
+            System.out.println(charClass);
+        }
+        if (randclass == Class.CLERIC){
+            Cleric charClass = new Cleric();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.DRUID){
+            Druid charClass = new Druid();
+            System.out.println(charClass);
+        }
+        if (randclass == Class.FIGHTER){
+            Fighter charClass = new Fighter();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.MONK){
+            Monk charClass = new Monk();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.PALADIN){
+            Paladin charClass = new Paladin();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.RANGER){
+            Ranger charClass = new Ranger();
+            System.out.println(charClass);
+        }
+
+        if (randclass == Class.ROGUE){
+            Rogue charClass = new Rogue();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.SORCERER){
+            Sorcerer charClass = new Sorcerer();
+            System.out.println(charClass);
+
+        }
+        if (randclass == Class.WARLOCK){
+            Warlock charClass = new Warlock();
+            System.out.println(charClass);
+        }
+        if (randclass == Class.WIZARD){
+            Wizard charClass = new Wizard();
+            System.out.println(charClass);
+        }
+    }
+
+    /**
+     * Creates an instance of the background subclasses that corresponds to the random enum backgroun value
+     */
+    public static void getBackground(){
+        System.out.println("\nBackground: "+background);
+
+        if (background == Background.ACOLYTE){
+            Acolyte charBG = new Acolyte();
+            System.out.println(charBG);
+        }
+        if (background == Background.CHARLATAN){
+            Charlatan charBG = new Charlatan();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.CRIMINAL){
+            Criminal charBG = new Criminal();
+            System.out.println(charBG);
+        }
+        if (background == Background.ENTERTAINER){
+            Entertainer charBG = new Entertainer();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.FOLK_HERO){
+            FolkHero charBG = new FolkHero();
+            System.out.println(charBG);
+        }
+        if (background == Background.GUILD_ARTISAN){
+            GuildArtisan charBG = new GuildArtisan();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.HERMIT){
+            Hermit charBG = new Hermit();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.NOBLE){
+            Noble charBG = new Noble();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.OUTLANDER){
+            Outlander charBG = new Outlander();
+            System.out.println(charBG);
+        }
+
+        if (background == Background.SAGE){
+            Sage charBG = new Sage();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.SAILOR){
+            Sailor charBG = new Sailor();
+            System.out.println(charBG);
+
+        }
+        if (background == Background.SOLDIER){
+            Soldier charBG = new Soldier();
+            System.out.println(charBG);
+        }
+        if (background == Background.URCHIN){
+            Urchin charBG = new Urchin();
+            System.out.println(charBG);
+        }
+
+    }
+
     //testing and temporary character info output
     public static void main(String[] args) {
         setName();
-        System.out.println("\nRace: "+ randrace);
-        System.out.println("Class: "+ randclass);
-        System.out.println("Background: "+background);
-        System.out.println("Alignment: "+ alignment);        
+        System.out.println("\nAlignment: "+ alignment);        
         System.out.println("Level: "+ level);
         System.out.println("Proficiency Bonus: +"+ proficiencyBonus);
-        for (int i=0;i<6;i++){
-            System.out.println("____________\n"+statNames.get(i) +": "+ setStats().get(i));
-            System.out.println("Modifier: "+ setMods().get(i)+"\n____________");
-
-        } 
-        System.out.println("\nInitiative Modifier: "+ setMods().get(1));
-        armorClass = 10 + setMods().get(1);
-        System.out.println("Armor Class: "+ armorClass+"\n________________________________________________________________________________________\n");
+        getRace();
+        // System.out.println(" ");
+        getCharacterClass();
+        // System.out.println(" ");
+        getBackground();
+        System.out.println("\n________________________________________________________________________________________\n");
     }
 }

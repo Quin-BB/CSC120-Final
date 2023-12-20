@@ -1,5 +1,5 @@
 package CharacterGenerator;
-public enum charClass {
+public enum Class {
     ARTIFICER,
     BARBARIAN,
     BARD,
@@ -14,7 +14,7 @@ public enum charClass {
     WARLOCK,
     WIZARD;
 
-    public static charClass getRandom(){
+    public static Class getRandom(){
         return values()[(int)(Math.random()*values().length)];
     }
 }

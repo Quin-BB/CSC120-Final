@@ -6,54 +6,50 @@ import java.util.List;
 
 import CharacterGenerator.characterCreator;
 
-public class Warlock extends characterCreator{
+public class Druid extends characterCreator{
     String hitDice = "1d8";
-    String subClass;
 
     int armorClass; // calcualte in main loop? based on dex? -- call set stats?? but racial bonuses?
     int hitPoints; //calculate this in the main loop where enums are checked? - based on con 
-    int spellSaveDC; //8+2+charisma mod
-    int spellAtkMod; //charisma mod +2 
+    int spellSaveDC; //8+2+ wisdom mod
+    int spellAtkMod; //wisdom mod +2 
 
-    String spellSlots = "1 1st Level Slot";
+    String spellSlots = "2 1st Level Slot";
     int cantripsKnown = 2;
-    int spellsKnown =2;
+    int spellsKnown;// CALCULATE IN LOOP Wisdom mod + Druid level
 
-    List<String> classSkillProf = Arrays.asList("Arcana", "Deception", "History", "Intimidation", 
-    "Investigation", "Nature","Religion");//chose 2
-    List<String> classWeapProf =  Arrays.asList("Simple Weapons");
-    List<String> classArmorProf =  Arrays.asList("Light Armor");
-    List<String> patrons = Arrays.asList("Archfey","Fiend","Great Old One",
-    "Hexblade","Celestial","Fathomless","Genie","Undead","Undying");
-
-    List<String> savingThrows = Arrays.asList("Wisdom","Charisma");
+    List<String> classSkillProf = Arrays.asList("Arcana", "Insight", "Animal Handling", "Nature","Perception","Survival", 
+    "Medicine","Religion");//chose 2
+    List<String> classWeapProf =  Arrays.asList("Clubs", "Daggers", "Darts", "Javelins", "Maces", "Quarterstaffs", "Scimitars", "Sickles", "Slings", "Spears");
+    List<String> classArmorProf =  Arrays.asList("Light Armor","Medium Armor","Shields");
+    List<String> classToolProf = Arrays.asList("Herbalism Kit");
+    List<String> classLanguages = Arrays.asList("Druidic");
+   
+    List<String> savingThrows = Arrays.asList("Intelligence","Wisdom");
 
     ArrayList<String> allStartEquipment = new ArrayList<>();
 
 
     String equip1;
     String equip2;
-    String equip3;
-    List<String> equipChoice1 = Arrays.asList("Light Crossbow and 20 bolts","Any simple weapon");
-    List<String> equipChoice2 = Arrays.asList("Componenet pouch","Arcane focus");
-    List<String> equipChoice3 = Arrays.asList("Scholar's Pack","Dungeoneer's Pack");
-    // List<String> equipFinal = Arrays.asList("Leather Armor","Any simple weapon","Two daggers");
-
-    public Warlock(){
+    List<String> equipChoice1 = Arrays.asList("Wooden Shield","Any Simple Weapon");
+    List<String> equipChoice2 = Arrays.asList("Scimitar","Any Simple Melee Weapon");
+    
+    public Druid(){
         mods = super.setMods();
 
         int dexMod = mods.get(1);
         int conMod = mods.get(2);
-        int charMod = mods.get(5);
+        int wisMod = mods.get(4);
 
         setStartEquip();
-        
+
         armorClass = 11+dexMod;
         hitPoints = conMod + 8;
-        spellSaveDC = 10 + charMod;
-        spellAtkMod = charMod+2;
+        spellSaveDC = 10 + wisMod;
+        spellAtkMod = wisMod+2;
+        spellsKnown = wisMod+1;
 
-        System.out.println("Warlock Patron: "+ subClass);
         System.out.println("Armor Class: "+ armorClass );
         System.out.println("Hit Points: "+ hitPoints);
         System.out.println("Hit Dice: "+ hitDice);
@@ -62,7 +58,8 @@ public class Warlock extends characterCreator{
         // System.out.println("Class Features: "+ classFeats);
         System.out.println("\nClass Weapon Proficiencies: "+classWeapProf);
         System.out.println("Class Armor Proficienceis: "+ classArmorProf);
-        System.out.println("Class Tool Proficiencies: None");
+        System.out.println("Class Tool Proficiencies: "+ classToolProf);
+        System.out.println("Class Languages: "+ classLanguages);
         System.out.println("\nStarting Equipment: "+ allStartEquipment);
         System.out.println("\nSPELL INFORMATION");
         System.out.println("Spell Save DC: "+ spellSaveDC + "       Spell Attack Modifier: +"+spellAtkMod);
@@ -70,16 +67,6 @@ public class Warlock extends characterCreator{
 
     }
 
-    public String setSubClass(){
-        int choice = super.dice(1, 9, false);
-            
-        for (int i=0; i<9;i++){
-                if (patrons.get(i) == patrons.get(choice-1)){
-                        subClass =  patrons.get(choice-1);
-                }   
-        }        
-        return subClass;
-    }
 
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
@@ -104,28 +91,13 @@ public class Warlock extends characterCreator{
     }
 
 
-    public String setEquip3(){
-         int choice = super.dice(1, 2, false);
-            
-        for (int i=0; i<2;i++){
-                if (equipChoice3.get(i) == equipChoice3.get(choice-1)){
-                       equip3 = equipChoice3.get(choice-1);
-                }   
-        }       
-        return equip3;
-    }
-
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());
-        allStartEquipment.add(setEquip3());
         allStartEquipment.add("Leather Armor");
-        allStartEquipment.add("Any simple weapon");
-        allStartEquipment.add("Two daggers");
-
-
+        allStartEquipment.add("Explorer's Pack");
+        allStartEquipment.add("Druidic Focus");
         return allStartEquipment;
     }
-
-
+ 
 }

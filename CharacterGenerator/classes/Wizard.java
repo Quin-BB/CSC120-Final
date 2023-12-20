@@ -6,27 +6,25 @@ import java.util.List;
 
 import CharacterGenerator.characterCreator;
 
-public class Warlock extends characterCreator{
-    String hitDice = "1d8";
-    String subClass;
+public class Wizard extends characterCreator{
+    String hitDice = "1d6";
+    // String subClass; //wizards don't get subclasses until level 2
 
     int armorClass; // calcualte in main loop? based on dex? -- call set stats?? but racial bonuses?
     int hitPoints; //calculate this in the main loop where enums are checked? - based on con 
     int spellSaveDC; //8+2+charisma mod
     int spellAtkMod; //charisma mod +2 
 
-    String spellSlots = "1 1st Level Slot";
-    int cantripsKnown = 2;
-    int spellsKnown =2;
+    String spellSlots = "2 1st Level Slot";
+    int cantripsKnown = 3;
+    int spellsKnown = 6;
 
-    List<String> classSkillProf = Arrays.asList("Arcana", "Deception", "History", "Intimidation", 
-    "Investigation", "Nature","Religion");//chose 2
-    List<String> classWeapProf =  Arrays.asList("Simple Weapons");
-    List<String> classArmorProf =  Arrays.asList("Light Armor");
-    List<String> patrons = Arrays.asList("Archfey","Fiend","Great Old One",
-    "Hexblade","Celestial","Fathomless","Genie","Undead","Undying");
+    List<String> classSkillProf = Arrays.asList("Arcana", "Insight", "History", "Investigation", 
+    "Medicine","Religion");//chose 2
+    List<String> classWeapProf =  Arrays.asList("Daggers","Darts","Slings","Quarterstaffs","Light Crossbows");
+    List<String> classArmorProf =  Arrays.asList("None");
 
-    List<String> savingThrows = Arrays.asList("Wisdom","Charisma");
+    List<String> savingThrows = Arrays.asList("Intelligence","Wisdom");
 
     ArrayList<String> allStartEquipment = new ArrayList<>();
 
@@ -34,26 +32,23 @@ public class Warlock extends characterCreator{
     String equip1;
     String equip2;
     String equip3;
-    List<String> equipChoice1 = Arrays.asList("Light Crossbow and 20 bolts","Any simple weapon");
+    List<String> equipChoice1 = Arrays.asList("Quarterstaff","A Dagger");
     List<String> equipChoice2 = Arrays.asList("Componenet pouch","Arcane focus");
-    List<String> equipChoice3 = Arrays.asList("Scholar's Pack","Dungeoneer's Pack");
-    // List<String> equipFinal = Arrays.asList("Leather Armor","Any simple weapon","Two daggers");
-
-    public Warlock(){
+    List<String> equipChoice3 = Arrays.asList("Scholar's Pack","Explorer's Pack");
+  
+    public Wizard(){
         mods = super.setMods();
 
         int dexMod = mods.get(1);
         int conMod = mods.get(2);
-        int charMod = mods.get(5);
+        int intMod = mods.get(3);
 
         setStartEquip();
-        
-        armorClass = 11+dexMod;
-        hitPoints = conMod + 8;
-        spellSaveDC = 10 + charMod;
-        spellAtkMod = charMod+2;
-
-        System.out.println("Warlock Patron: "+ subClass);
+        armorClass = 10+dexMod;
+        hitPoints = conMod + 6;
+        spellSaveDC = 10 + intMod;
+        spellAtkMod = intMod+2;
+       
         System.out.println("Armor Class: "+ armorClass );
         System.out.println("Hit Points: "+ hitPoints);
         System.out.println("Hit Dice: "+ hitDice);
@@ -68,17 +63,6 @@ public class Warlock extends characterCreator{
         System.out.println("Spell Save DC: "+ spellSaveDC + "       Spell Attack Modifier: +"+spellAtkMod);
         System.out.println("Spell Slots: "+ spellSlots + "      Cantrips Known: "+ cantripsKnown+"      Spells Known: "+spellsKnown);
 
-    }
-
-    public String setSubClass(){
-        int choice = super.dice(1, 9, false);
-            
-        for (int i=0; i<9;i++){
-                if (patrons.get(i) == patrons.get(choice-1)){
-                        subClass =  patrons.get(choice-1);
-                }   
-        }        
-        return subClass;
     }
 
     public String setEquip1(){
@@ -119,13 +103,9 @@ public class Warlock extends characterCreator{
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());
         allStartEquipment.add(setEquip3());
-        allStartEquipment.add("Leather Armor");
-        allStartEquipment.add("Any simple weapon");
-        allStartEquipment.add("Two daggers");
-
+        allStartEquipment.add("Spellbook");
 
         return allStartEquipment;
     }
-
 
 }

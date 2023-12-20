@@ -6,8 +6,8 @@ import java.util.List;
 
 import CharacterGenerator.characterCreator;
 
-public class Warlock extends characterCreator{
-    String hitDice = "1d8";
+public class Sorcerer extends characterCreator{
+    String hitDice = "1d6";
     String subClass;
 
     int armorClass; // calcualte in main loop? based on dex? -- call set stats?? but racial bonuses?
@@ -15,18 +15,18 @@ public class Warlock extends characterCreator{
     int spellSaveDC; //8+2+charisma mod
     int spellAtkMod; //charisma mod +2 
 
-    String spellSlots = "1 1st Level Slot";
-    int cantripsKnown = 2;
-    int spellsKnown =2;
+    String spellSlots = "2 1st Level Slot";
+    int cantripsKnown = 4;
+    int spellsKnown = 2;
 
-    List<String> classSkillProf = Arrays.asList("Arcana", "Deception", "History", "Intimidation", 
-    "Investigation", "Nature","Religion");//chose 2
-    List<String> classWeapProf =  Arrays.asList("Simple Weapons");
-    List<String> classArmorProf =  Arrays.asList("Light Armor");
-    List<String> patrons = Arrays.asList("Archfey","Fiend","Great Old One",
-    "Hexblade","Celestial","Fathomless","Genie","Undead","Undying");
+    List<String> classSkillProf = Arrays.asList("Arcana", "Deception", "Insight", "Intimidation", 
+    "Persuasion","Religion");//chose 2
+    List<String> classWeapProf =  Arrays.asList("Daggers","Darts","Slings","Quarterstaffs","Light Crossbows");
+    List<String> classArmorProf =  Arrays.asList("None");
+    List<String> origins = Arrays.asList("Abberant Mind","Clockwork Soul","Draconic Bloodline","Divine Soul","Lunar Sorcery",
+    "Shadow Magic","Storm Sorcery","Wild Magic");
 
-    List<String> savingThrows = Arrays.asList("Wisdom","Charisma");
+    List<String> savingThrows = Arrays.asList("Constitution","Charisma");
 
     ArrayList<String> allStartEquipment = new ArrayList<>();
 
@@ -36,10 +36,9 @@ public class Warlock extends characterCreator{
     String equip3;
     List<String> equipChoice1 = Arrays.asList("Light Crossbow and 20 bolts","Any simple weapon");
     List<String> equipChoice2 = Arrays.asList("Componenet pouch","Arcane focus");
-    List<String> equipChoice3 = Arrays.asList("Scholar's Pack","Dungeoneer's Pack");
-    // List<String> equipFinal = Arrays.asList("Leather Armor","Any simple weapon","Two daggers");
+    List<String> equipChoice3 = Arrays.asList("Explorer's Pack","Dungeoneer's Pack");
 
-    public Warlock(){
+    public Sorcerer(){
         mods = super.setMods();
 
         int dexMod = mods.get(1);
@@ -47,13 +46,11 @@ public class Warlock extends characterCreator{
         int charMod = mods.get(5);
 
         setStartEquip();
-        
-        armorClass = 11+dexMod;
-        hitPoints = conMod + 8;
+        armorClass = 10+dexMod;
+        hitPoints = conMod + 6;
         spellSaveDC = 10 + charMod;
         spellAtkMod = charMod+2;
 
-        System.out.println("Warlock Patron: "+ subClass);
         System.out.println("Armor Class: "+ armorClass );
         System.out.println("Hit Points: "+ hitPoints);
         System.out.println("Hit Dice: "+ hitDice);
@@ -74,8 +71,8 @@ public class Warlock extends characterCreator{
         int choice = super.dice(1, 9, false);
             
         for (int i=0; i<9;i++){
-                if (patrons.get(i) == patrons.get(choice-1)){
-                        subClass =  patrons.get(choice-1);
+                if (origins.get(i) == origins.get(choice-1)){
+                        subClass =  origins.get(choice-1);
                 }   
         }        
         return subClass;
@@ -119,13 +116,10 @@ public class Warlock extends characterCreator{
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());
         allStartEquipment.add(setEquip3());
-        allStartEquipment.add("Leather Armor");
-        allStartEquipment.add("Any simple weapon");
         allStartEquipment.add("Two daggers");
 
 
         return allStartEquipment;
     }
-
 
 }
