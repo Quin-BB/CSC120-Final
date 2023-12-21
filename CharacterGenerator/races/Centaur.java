@@ -13,7 +13,9 @@ public class Centaur extends characterCreator{
 
     String size = "Medium";
     int speed = 40;
-
+    /**
+     * Prints out all related variables and information to Centaurs
+     */
     public Centaur(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -28,7 +30,4 @@ public class Centaur extends characterCreator{
         System.out.println("\nInitiative Modifier: "+ super.setMods().get(1));
     }
 
-    // public void statBonus(){ //when given a choice in stat bonuses I just went with dex and con 
-    //     super.setStats(0,1,2,0,0,0);
-    // }
 }

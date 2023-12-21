@@ -11,6 +11,9 @@ public class Human extends characterCreator{
     String size = "Medium";
     int speed = 30;
 
+    /**
+     * Prints out all related variables and information to Humans
+     */
     public Human(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -25,7 +28,4 @@ public class Human extends characterCreator{
         
     }
 
-    public void statBonus(){
-        super.setStats(1,1,1,1,1,1);
-    }
 }

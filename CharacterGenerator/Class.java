@@ -14,6 +14,10 @@ public enum Class {
     WARLOCK,
     WIZARD;
 
+    /**
+     * get random class 
+     * @return random class value
+     */
     public static Class getRandom(){
         return values()[(int)(Math.random()*values().length)];
     }

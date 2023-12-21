@@ -15,6 +15,9 @@ public class Halfling extends characterCreator{
     String size = "Small";
     int speed = 25;
 
+    /**
+     * Prints out all related variables and information to Halflings
+     */
     public Halfling(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -30,7 +33,4 @@ public class Halfling extends characterCreator{
        
     }
 
-    public void statBonus(){
-        super.setStats(0,2,0,0,0,0);
-    }
 }

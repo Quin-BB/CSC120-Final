@@ -20,7 +20,10 @@ public enum ALGN {
     CHAOTIC_EVIL;
 
 
-
+    /**
+     * get random enum value
+     * @return chosen alignment value
+     */
     public static ALGN getRandom(){
         return values()[(int)(Math.random()*values().length)];
     }

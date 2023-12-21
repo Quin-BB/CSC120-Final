@@ -13,6 +13,9 @@ public class Gnome extends characterCreator{
     String size = "Small";
     int speed = 25;
    
+    /**
+     * Prints out all related variables and information to Gnomes
+     */
     public Gnome(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -28,7 +31,4 @@ public class Gnome extends characterCreator{
         
     }
 
-    public void statBonus(){
-        super.setStats(0,0,0,2,0,0);
-    }
 }

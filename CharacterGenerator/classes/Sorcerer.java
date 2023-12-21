@@ -38,6 +38,9 @@ public class Sorcerer extends characterCreator{
     List<String> equipChoice2 = Arrays.asList("Componenet pouch","Arcane focus");
     List<String> equipChoice3 = Arrays.asList("Explorer's Pack","Dungeoneer's Pack");
 
+    /*
+     * outputs all sorcerer class information
+     */
     public Sorcerer(){
         mods = super.setMods();
 
@@ -67,6 +70,10 @@ public class Sorcerer extends characterCreator{
 
     }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setSubClass(){
         int choice = super.dice(1, 9, false);
             
@@ -78,6 +85,10 @@ public class Sorcerer extends characterCreator{
         return subClass;
     }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -89,6 +100,10 @@ public class Sorcerer extends characterCreator{
         return equip1;
     }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -100,7 +115,10 @@ public class Sorcerer extends characterCreator{
         return equip2;
     }
 
-
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip3(){
          int choice = super.dice(1, 2, false);
             
@@ -112,6 +130,10 @@ public class Sorcerer extends characterCreator{
         return equip3;
     }
 
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());

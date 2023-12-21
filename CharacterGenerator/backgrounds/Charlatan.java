@@ -55,61 +55,84 @@ public class Charlatan extends characterCreator{
     "I run sleight-of-hand cons on street corners.",
     "I convince people that worthless junk is worth their hard-earned money.");
 
-    public Charlatan(){
-        System.out.println("Background Skill Proficiencies: "+ bgSkillProf);
-        System.out.println("Background Tool Proficiencies: "+ bgToolsProf);
-        System.out.println("Background Equipment: "+ Equipment);
-        System.out.println("\nCharlatan Scam: "+ setScam());
-        System.out.println("\nPersonality Traits: "+ setTraits());
-        System.out.println("\nIdeal: "+ setIdeals());
-        System.out.println("\nBonds: "+ setBonds());
-        System.out.println("\nFlaws: "+ setFlaws());
-    }
+        /**
+         * Constructor prints out all related Charlatan info
+         */
+        public Charlatan(){
+                System.out.println("Background Skill Proficiencies: "+ bgSkillProf);
+                System.out.println("Background Tool Proficiencies: "+ bgToolsProf);
+                System.out.println("Background Equipment: "+ Equipment);
+                System.out.println("\nCharlatan Scam: "+ setScam());
+                System.out.println("\nPersonality Traits: "+ setTraits());
+                System.out.println("\nIdeal: "+ setIdeals());
+                System.out.println("\nBonds: "+ setBonds());
+                System.out.println("\nFlaws: "+ setFlaws());
+        }
 
-    public String setScam(){
-            int choice = super.dice(1, 6, false);
-            
-            for (int i=0; i<6;i++){
-                    if (scamChoice.get(i) == scamChoice.get(choice-1)){
-                            Scam =  scamChoice.get(choice-1);
-                    }   
-            }
-            return Scam;
-    }
+        /**
+         * Pick the Charlatan Scam from list based on dice roll
+         * @return the chosen scame from list
+         */
+        public String setScam(){
+                int choice = super.dice(1, 6, false);
+                
+                for (int i=0; i<6;i++){
+                        if (scamChoice.get(i) == scamChoice.get(choice-1)){
+                                Scam =  scamChoice.get(choice-1);
+                        }   
+                }
+                return Scam;
+        }
 
-    public String setTraits(){
-            int choice = super.dice(1, 8, false);
-            
-            for (int i=0; i<8;i++){
-                    if (traitsChoice.get(i) == traitsChoice.get(choice-1)){
-                            Traits =  traitsChoice.get(choice-1);
-                    }   
-            }
-            return Traits;
-    }
+        /**
+         * Pick Charlatan Trait from given list
+         * @return chosen trait
+         */
+        public String setTraits(){
+                int choice = super.dice(1, 8, false);
+                
+                for (int i=0; i<8;i++){
+                        if (traitsChoice.get(i) == traitsChoice.get(choice-1)){
+                                Traits =  traitsChoice.get(choice-1);
+                        }   
+                }
+                return Traits;
+        }
     
-    public String setIdeals(){
-            int choice = super.dice(1, 6, false);
-            
-            for (int i=0; i<6;i++){
-                    if (idealsChoice.get(i) == idealsChoice.get(choice-1)){
-                        Ideals =  idealsChoice.get(choice-1);
-                    }   
-            }
-            return Ideals;
-    }
+        /**
+         * Pick Charlatan Ideals from list
+         * @return chosen ideal
+         */
+        public String setIdeals(){
+                int choice = super.dice(1, 6, false);
+                
+                for (int i=0; i<6;i++){
+                        if (idealsChoice.get(i) == idealsChoice.get(choice-1)){
+                                Ideals =  idealsChoice.get(choice-1);
+                        }   
+                }
+                return Ideals;
+        }
     
-    public String setBonds(){
-            int choice = super.dice(1, 6, false);
-            
-            for (int i=0; i<6;i++){
-                    if (bondsChoice.get(i) == bondsChoice.get(choice-1)){
-                        Bonds =  bondsChoice.get(choice-1);
-                    }   
-            }
-            return Bonds;
-    }
+        /**
+         * set Charlatan Bond from list
+         * @return chosen bond from list
+         */
+        public String setBonds(){
+                int choice = super.dice(1, 6, false);
+                
+                for (int i=0; i<6;i++){
+                        if (bondsChoice.get(i) == bondsChoice.get(choice-1)){
+                                Bonds =  bondsChoice.get(choice-1);
+                        }   
+                }
+                return Bonds;
+        }
     
+        /**
+         * pick a flaw from given list of flaws
+         * @return chosen flaw from list
+         */
         public String setFlaws(){
             int choice = super.dice(1, 6, false);
             

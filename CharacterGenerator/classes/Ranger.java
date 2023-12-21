@@ -31,6 +31,9 @@ public class Ranger extends characterCreator{
     List<String> equipChoice2 = Arrays.asList("Two Shortswords","Two Simple Melee Weapons");
     List<String> equipChoice3 = Arrays.asList("Dungeoneer's Pack","Explorer's Pack");
 
+    /*
+     * print all ranger information
+     */
     public Ranger(){
         mods = super.setMods();
 
@@ -57,8 +60,10 @@ public class Ranger extends characterCreator{
         System.out.println("\nStarting Equipment: "+ allStartEquipment);
     }       
 
-        
-
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */    
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -70,6 +75,10 @@ public class Ranger extends characterCreator{
         return equip1;
     }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -81,7 +90,10 @@ public class Ranger extends characterCreator{
         return equip2;
     }
 
-
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip3(){
          int choice = super.dice(1, 2, false);
             
@@ -93,6 +105,10 @@ public class Ranger extends characterCreator{
         return equip3;
     }
 
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());

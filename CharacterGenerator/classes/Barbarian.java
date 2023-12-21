@@ -34,7 +34,9 @@ public class Barbarian extends characterCreator{
     List<String> equipChoice1 = Arrays.asList("Greataxe","Any Martial Melee Weapon");
     List<String> equipChoice2 = Arrays.asList("Two Handaxes","Any Simple Weapon");
 
-
+    /*
+     * Prints out All class information
+     */
     public Barbarian(){
         mods = super.setMods();
         int dexMod = mods.get(1);
@@ -58,6 +60,10 @@ public class Barbarian extends characterCreator{
         System.out.println("While Raging You Deal: +"+rageDmg+" damage while attacking in melee using strength");
     }
 
+    /**
+     * make the first equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -69,6 +75,10 @@ public class Barbarian extends characterCreator{
         return equip1;
     }
 
+    /**
+     * make the 2nd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -80,7 +90,10 @@ public class Barbarian extends characterCreator{
         return equip2;
     }
 
-
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());   

@@ -15,7 +15,9 @@ public class Dwarf extends characterCreator{
     String size = "Medium";
     int speed = 25;
 
-
+    /**
+     * Prints out all related variables and information to Dwarfs
+     */
     public Dwarf(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);

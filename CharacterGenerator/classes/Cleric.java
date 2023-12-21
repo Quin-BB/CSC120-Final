@@ -75,18 +75,25 @@ public class Cleric extends characterCreator{
         System.out.println("Spell Slots: "+ spellSlots + "      Cantrips Known: "+ cantripsKnown+"      Spells Known: "+spellsKnown);
 
     }
+        /**
+         * Pick the cleric's divine domain from list
+         * @return subclass chosen
+         */
+        public String setSubClass(){
+                int choice = super.dice(1, 14, false);
+                
+                for (int i=0; i<14;i++){
+                        if (divineDomain.get(i) == divineDomain.get(choice-1)){
+                                subClass =  divineDomain.get(choice-1);
+                        }   
+                }        
+                return subClass;
+        }
 
-    public String setSubClass(){
-        int choice = super.dice(1, 14, false);
-            
-        for (int i=0; i<14;i++){
-                if (divineDomain.get(i) == divineDomain.get(choice-1)){
-                        subClass =  divineDomain.get(choice-1);
-                }   
-        }        
-        return subClass;
-    }
-
+     /**
+     * make the 1st equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -98,6 +105,10 @@ public class Cleric extends characterCreator{
         return equip1;
     }
 
+     /**
+     * make the 2nd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 3, false);
             
@@ -109,7 +120,10 @@ public class Cleric extends characterCreator{
         return equip2;
     }
 
-
+     /**
+     * make the 3rd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip3(){
          int choice = super.dice(1, 2, false);
             
@@ -121,6 +135,10 @@ public class Cleric extends characterCreator{
         return equip3;
     }
 
+     /**
+     * make the 4th equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip4(){
          int choice = super.dice(1, 2, false);
             
@@ -132,6 +150,10 @@ public class Cleric extends characterCreator{
         return equip4;
     }
 
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());

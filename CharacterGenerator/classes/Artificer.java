@@ -41,6 +41,9 @@ public class Artificer extends characterCreator{
     // List<String> equipChoice4 = Arrays.asList("Priest's Pack","Explorer's pack");
     // List<String> equipFinal = Arrays.asList("Leather Armor","Any simple weapon","Two daggers");
 
+    /**
+     * Sets and prints out all relevant Artificer Informations
+     */
     public Artificer(){
         mods = super.setMods();
         int dexMod = mods.get(1);
@@ -77,6 +80,10 @@ public class Artificer extends characterCreator{
 
     }
 
+    /**
+     * make the first equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -88,7 +95,10 @@ public class Artificer extends characterCreator{
         return equip1;
     }
 
-
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add("Any Two Simple Weapons");

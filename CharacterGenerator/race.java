@@ -1,23 +1,25 @@
 package CharacterGenerator;
 
-// import CharacterGenerator.races.*;
+public enum Race {
+    CENTAUR,
+    DRAGONBORN,
+    DWARF,
+    ELF,
+    GNOME,
+    HALF_ELF,
+    HALFLING,
+    HALF_ORC,
+    HUMAN,
+    KENKU,
+    SATYR,
+    TIEFLING,
+    YUAN_TI;
 
-public enum race {
-    Centaur,
-    Dragonborn,
-    Dwarf,
-    Elf,
-    Gnome,
-    HalfElf,
-    Halfling,
-    HalfOrc,
-    Human,
-    Kenku,
-    Satyr,
-    Tiefling,
-    YuanTi;
-
-    public static race getRandom(){
+    /**
+     * get random race enum value
+     * @return race enum value
+     */
+    public static Race getRandom(){
         return values()[(int)(Math.random()*values().length)];
     }
 

@@ -17,6 +17,9 @@ public class Dragonborn extends characterCreator{
     String size = "Medium";
     int speed = 30;
 
+    /**
+     * Prints out all related variables and information to Dragonborns
+     */
     public Dragonborn(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
 
@@ -34,10 +37,10 @@ public class Dragonborn extends characterCreator{
        
     }
 
-    public void statBonus(){
-        super.setStats(2,0,0,0,0,1);
-    }
-    
+    /**
+     * Pick dragonborn ancestry from list
+     * @return chosen dragonborn ancestry color
+     */
     public String ancestry(){
        int choice = super.dice(1, 10, false);
        

@@ -12,6 +12,9 @@ public class Satyr extends characterCreator{
     String size = "Medium";
     int speed = 35;
 
+    /**
+     * Prints out all related variables and information to Satyrs
+     */
     public Satyr(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -27,7 +30,4 @@ public class Satyr extends characterCreator{
        
     }
 
-    public void statBonus(){
-        super.setStats(0,1,0,0,0,2);
-    }
 }

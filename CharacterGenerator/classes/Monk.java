@@ -32,6 +32,9 @@ public class Monk extends characterCreator{
     List<String> equipChoice1 = Arrays.asList("Shortsword","Any Simple Weapon");
     List<String> equipChoice2 = Arrays.asList("Dungeoneer's Pack","Explorer's Pack");
     
+    /*
+     * print all monk information
+     */
     public Monk(){
         mods = super.setMods();
 
@@ -54,9 +57,11 @@ public class Monk extends characterCreator{
         System.out.println("Class Tool Proficiencies: "+ classToolProf);
         System.out.println("\nStarting Equipment: "+ allStartEquipment);
     }
-
-        
-
+   
+    /**
+     * make the 1st equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -68,6 +73,10 @@ public class Monk extends characterCreator{
         return equip1;
     }
 
+     /**
+     * make the 2nd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -79,6 +88,10 @@ public class Monk extends characterCreator{
         return equip2;
     }
 
+     /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());   

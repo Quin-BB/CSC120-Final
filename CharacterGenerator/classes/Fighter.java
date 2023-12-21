@@ -35,6 +35,9 @@ public class Fighter extends characterCreator{
     List<String> equipChoice3 = Arrays.asList("Light Crossbow and 20 bolts","Two Handaxes");
     List<String> equipChoice4 = Arrays.asList("Dungeoneer's Pack","Explorer's pack");
 
+    /*
+     * All fighter information
+     */
     public Fighter(){
         mods = super.setMods();
 
@@ -63,6 +66,10 @@ public class Fighter extends characterCreator{
         
     }
 
+     /**
+      * pick the fighting style for Fighter
+     * @return choice made for fighting style
+     */
     public String setFightingStyle(){
         int choice = super.dice(1, 14, false);
             
@@ -74,6 +81,10 @@ public class Fighter extends characterCreator{
         return fightingStyle;
     }
 
+     /**
+     * make the 1st equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -85,6 +96,10 @@ public class Fighter extends characterCreator{
         return equip1;
     }
 
+     /**
+     * make the 2ns equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -96,7 +111,10 @@ public class Fighter extends characterCreator{
         return equip2;
     }
 
-
+     /**
+     * make the 3rd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip3(){
          int choice = super.dice(1, 2, false);
             
@@ -108,6 +126,10 @@ public class Fighter extends characterCreator{
         return equip3;
     }
 
+     /**
+     * make the 4th equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip4(){
          int choice = super.dice(1, 2, false);
             
@@ -119,6 +141,10 @@ public class Fighter extends characterCreator{
         return equip4;
     }
 
+    /**
+     * Set starting equipment for fighter class
+     * @return arraylist of starting class equip
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());

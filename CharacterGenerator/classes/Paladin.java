@@ -30,7 +30,9 @@ public class Paladin extends characterCreator{
     List<String> equipChoice2 = Arrays.asList("Five Javelins","Any Simple Melee Weapon");
     List<String> equipChoice3 = Arrays.asList("Priest's Pack","Explorer's Pack");
   
-
+    /*
+     * prints out all paladin information
+     */
     public Paladin(){
         mods = super.setMods();
 
@@ -52,6 +54,10 @@ public class Paladin extends characterCreator{
         System.out.println("\nStarting Equipment: "+ allStartEquipment);
         }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -63,6 +69,10 @@ public class Paladin extends characterCreator{
         return equip1;
     }
 
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -74,7 +84,10 @@ public class Paladin extends characterCreator{
         return equip2;
     }
 
-
+    /**
+     * make an equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip3(){
          int choice = super.dice(1, 2, false);
             
@@ -86,22 +99,14 @@ public class Paladin extends characterCreator{
         return equip3;
     }
 
-    // public String setEquip4(){
-    //      int choice = super.dice(1, 2, false);
-            
-    //     for (int i=0; i<10;i++){
-    //             if (equipChoice4.get(i) == equipChoice4.get(choice-1)){
-    //                    equip4 = equipChoice4.get(choice-1);
-    //             }   
-    //     }       
-    //     return equip4;
-    // }
-
+    /**
+     * Using the all starting equipment including choices made to output one ArrayList of class starting Equipment
+     * @return ArrayList of class starting equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());
         allStartEquipment.add(setEquip3());
-        // allStartEquipment.add(setEquip4());       
         allStartEquipment.add("Chain mail");
         allStartEquipment.add("Holy Symbol");
         return allStartEquipment;

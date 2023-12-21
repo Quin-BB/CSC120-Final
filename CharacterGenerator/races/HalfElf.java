@@ -15,6 +15,9 @@ public class HalfElf extends characterCreator{
     String size = "Medium";
     int speed = 30;
 
+    /**
+     * Prints out all related variables and information to HalfElfs
+     */
     public HalfElf(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);

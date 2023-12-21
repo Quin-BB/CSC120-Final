@@ -35,6 +35,9 @@ public class Druid extends characterCreator{
     List<String> equipChoice1 = Arrays.asList("Wooden Shield","Any Simple Weapon");
     List<String> equipChoice2 = Arrays.asList("Scimitar","Any Simple Melee Weapon");
     
+    /*
+     * Prints all Druid information
+     */
     public Druid(){
         mods = super.setMods();
 
@@ -67,7 +70,10 @@ public class Druid extends characterCreator{
 
     }
 
-
+     /**
+     * make the 1st equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip1(){
          int choice = super.dice(1, 2, false);
             
@@ -79,6 +85,10 @@ public class Druid extends characterCreator{
         return equip1;
     }
 
+     /**
+     * make the 2nd equipment choice
+     * @return the choice made for equipment choice
+     */
     public String setEquip2(){
          int choice = super.dice(1, 2, false);
             
@@ -90,7 +100,10 @@ public class Druid extends characterCreator{
         return equip2;
     }
 
-
+     /**
+     * set all starting equipment using choices made
+     * @return ArrayList of all class starting Equipment
+     */
     public ArrayList<String> setStartEquip(){
         allStartEquipment.add(setEquip1());
         allStartEquipment.add(setEquip2());

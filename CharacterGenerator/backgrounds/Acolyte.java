@@ -43,7 +43,9 @@ public class Acolyte extends characterCreator{
     "I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.",
     "I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.",
     "I've spent so long in the temple that I have little practical experience dealing with people in the outside world.");
-
+/**
+ * Constructor prints out all relevent background information
+ */
     public Acolyte(){
         System.out.println("Background Skill Proficiencies: "+ bgSkillProf);
         System.out.println("Background Languages: "+ bgLanguages);
@@ -54,7 +56,11 @@ public class Acolyte extends characterCreator{
         System.out.println("\nFlaws: "+ setFlaws());
     }
 
-    public String setTraits(){
+    /**
+     * Rolls a dice to pick a trait from the Acolyte's trait lists
+     * @return the chosen trait from the given list options
+     */
+        public String setTraits(){
             int choice = super.dice(1, 8, false);
             
             for (int i=0; i<8;i++){
@@ -65,7 +71,11 @@ public class Acolyte extends characterCreator{
             return Traits;
     }
     
-    public String setIdeals(){
+    /**
+     * Rolls a dice to pick a ideal from the Acolyte's ideal lists
+     * @return the chosen ideal from the given list options
+     */
+        public String setIdeals(){
             int choice = super.dice(1, 6, false);
             
             for (int i=0; i<6;i++){
@@ -76,7 +86,11 @@ public class Acolyte extends characterCreator{
             return Ideals;
     }
     
-    public String setBonds(){
+    /**
+     * Rolls a dice to pick a bonds from the Acolyte's bonds lists
+     * @return the chosen bonds from the given list options
+     */
+        public String setBonds(){
             int choice = super.dice(1, 6, false);
             
             for (int i=0; i<6;i++){
@@ -86,15 +100,19 @@ public class Acolyte extends characterCreator{
             }
             return Bonds;
     }
-    
+
+    /**
+     * Rolls a dice to pick a flaw from the Acolyte's flaw list
+     * @return the chosen flaw from the given list options
+     */
         public String setFlaws(){
-            int choice = super.dice(1, 6, false);
-            
-            for (int i=0; i<6;i++){
-                    if (flawsChoice.get(i) == flawsChoice.get(choice-1)){
+                int choice = super.dice(1, 6, false);
+                
+                for (int i=0; i<6;i++){
+                        if (flawsChoice.get(i) == flawsChoice.get(choice-1)){
                         Flaws =  flawsChoice.get(choice-1);
-                    }   
-            }
-            return Flaws;
-    }
+                        }   
+                }
+                return Flaws;
+        }
 }

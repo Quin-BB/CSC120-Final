@@ -14,6 +14,10 @@ public enum Background{
  SOLDIER,
  URCHIN;
 
+    /**
+     * choose random enum background value
+     * @return random background value
+     */
     public static Background getRandom(){
     return values()[(int)(Math.random()*values().length)];
 }

@@ -12,6 +12,9 @@ public class YuanTi extends characterCreator{
     String size = "Medium";
     int speed = 30;
 
+    /**
+     * Prints out all related variables and information to YuanTi
+     */
     public YuanTi(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -27,7 +30,4 @@ public class YuanTi extends characterCreator{
        
     }
 
-    public void statBonus(){
-        super.setStats(0,0,0,1,0,2);
-    }
 }

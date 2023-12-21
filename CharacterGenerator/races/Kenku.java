@@ -13,6 +13,9 @@ public class Kenku extends characterCreator{
     String size = "Medium";
     int speed = 30;
 
+    /**
+     * Prints out all related variables and information to Kenkus
+     */
     public Kenku(){
         List<String> statNames = Arrays.asList("Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma");
         System.out.println("Size: "+ size);
@@ -28,9 +31,5 @@ public class Kenku extends characterCreator{
         } 
         System.out.println("\nInitiative Modifier: "+ super.setMods().get(1));
        
-    }
-
-    public void statBonus(){
-        super.setStats(0,2,0,0,1,0);
     }
 }
