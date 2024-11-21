@@ -66,7 +66,7 @@ public class characterCreator {
 
         if (rerolling == true){
             // System.out.println("im here");
-            for (int i = 1; i <= numRolls+1; i++){
+            for (int i = 1; i <= numRolls; i++){
                 if (individualRoll == 1){
                     i --;
                     // System.out.println("rerolling...");
@@ -79,7 +79,8 @@ public class characterCreator {
                     /*
                     * current issue is that if on the last loop and this section rolls a 1 it will not be rerolled since the loop is done and it will not go back to check
                     */
-                    // System.out.println("individual roll 'first roll': "+ individualRoll);
+                    // System.out.println("individual roll: "+ individualRoll);
+                    // System.out.println("total roll: "+ roll);
 
                 }
             }
